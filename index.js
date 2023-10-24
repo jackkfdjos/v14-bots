@@ -76,3 +76,15 @@ client.login(config.token).then(() => {
 }).catch(() => {
 	console.log(`[x] Discord API'ye istek gönderimi başarısız.`);
 });
+
+const { joinVoiceChannel } = require('@discordjs/voice')
+client.on('ready', () => {
+  let channel = client.channels.cache.get("1164339617261166632")
+ 
+
+      const VoiceConnection = joinVoiceChannel({
+          channelId: channel.id,
+          guildId: channel.guild.id,
+          adapterCreator: channel.guild.voiceAdapterCreator
+  });
+})
